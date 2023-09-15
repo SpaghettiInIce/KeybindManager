@@ -47,18 +47,6 @@ function Press(keybind)
     game:GetService("VirtualInputManager"):SendKeyEvent(true, Keytosend, false, game)
 end
 
--- Listen for player chat messages
-LocalPlayer.Chatted:Connect(function(message)
-    local splitMessage = string.split(message, " ")
-    if splitMessage[1] == "/e" then
-        local buttonName = splitMessage[2]
-        local keybindName = splitMessage[3]
-        
-        -- Execute button creation logic with a cool design using the KeyBind function
-        KeyBind(buttonName, keybindName)
-    end
-end)
-
 -- Create buttons for the initial character, if available
 if LocalPlayer.Character then
     for _, buttonInfo in pairs(buttons) do
