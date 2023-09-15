@@ -42,6 +42,10 @@ end
 function KeyBind(buttonName, keybindName, position)
     CreateDraggableButton(buttonName, keybindName, position)
 end
+function Press(keybind)
+    local Keytosend = Enum.KeyCode[keybind]
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, Keytosend, false, game)
+end
 
 -- Listen for player chat messages
 LocalPlayer.Chatted:Connect(function(message)
